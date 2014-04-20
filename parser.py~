@@ -12,6 +12,7 @@ response = urllib2.urlopen("http://www.cnn.com/2014/04/19/world/asia/south-korea
 #get a page
 page_source = response.read()
 
+
 soup = BeautifulSoup(page_source)
 
 page = ""

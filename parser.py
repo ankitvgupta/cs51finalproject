@@ -9,20 +9,20 @@ from collections import Counter
 #an alternate way of getting all of a webpage
 response = urllib2.urlopen("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1")
 
-#get a page
+#reads in info
 page_source = response.read()
 
-
+#turns page into parseable form
 soup = BeautifulSoup(page_source)
+page_text = ""
 
-page = ""
-
-
+#gets text from all of page
 for para in soup.find_all('p'):
-    page += str(para.getText())
+    page_text += str(para.getText())
 
-print page
+print page_text
 
-count = Counter(page.split())
+#creates dictionary with word counts
+count = Counter(page_text.split())
 
 print count
