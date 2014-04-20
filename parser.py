@@ -24,5 +24,7 @@ print page_text
 
 #creates dictionary with word counts
 count = Counter(page_text.split())
+standard_dict_count = dict(count)
 
 print count
+print standard_dict_count
