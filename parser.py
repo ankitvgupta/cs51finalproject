@@ -42,6 +42,4 @@ print count
 
 #for a in wordlist:
 #	wordsFreq[a] += 1
-
-
 #print wordsFreq		
