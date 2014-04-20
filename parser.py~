@@ -1,24 +1,17 @@
 from bs4 import BeautifulSoup
-
+import urllib2
 import requests
 
-r = requests.get("www.npatel.me")
+#r = requests.get("http://www.npatel.me")
 
-data = r.text
+#data = r.text
 
-soup = BeautifulSoup(data)
 
-for link in soup.find_all('a'):
-    print(link.get('href'))
+#an alternate way of getting all of a webpage
+response = urllib2.urlopen("http://www.reuters.com/article/2014/04/19/us-social-security-idUSBREA3I0GL20140419")
+page_source = response.read()
+soup = BeautifulSoup(page_source)
 
-#class MyHTMLParser(HTMLParser):
-#    def handle_starttag(self, tag, attrs):
-#        print "Encountered a start tag:", tag
-#    def handle_endtag(self, tag):
-#        print "Encountered an end tag :", tag
-#    def handle_data(self, data):
-#        print "Encountered some data: ", data
+for link in soup.find_all('p'):
+    print(link)
 
-#parser = MyHTMLParser()
-#parser.feed('<html><head><title>Test</title></head>'
-#            '<body><h1>Parse me!</h1></body></html>')
