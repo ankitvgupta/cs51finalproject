@@ -1,4 +1,4 @@
-Efrom bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 import urllib2
 import requests
 
@@ -8,9 +8,12 @@ import requests
 
 
 #an alternate way of getting all of a webpage
-response = urllib2.urlopen("http://www.reuters.com/article/2014/04/20/us-ukraine-crisis-idUSBREA3A1B520140420")
+<<<<<<< HEAD
+response = urllib2.urlopen("http://www.reuters.com/article/2014/04/18/us-china-petrochemicals-campaign-idUSBREA3H07020140418")
+=======
+response = urllib2.urlopen("http://www.cnn.com/2014/04/19/world/asia/malaysia-airlines-plane/index.html?hpt=hp_t2")
+>>>>>>> 18ee91cc11df79bdc89c54b1c9b9e7966e51a531
 page_source = response.read()
-
 soup = BeautifulSoup(page_source)
 
 for link in soup.find_all('p'):
