@@ -2,16 +2,15 @@ from bs4 import BeautifulSoup
 import urllib2
 import requests
 from collections import defaultdict
+from collections import Counter
 
-<<<<<<< HEAD
-=======
+
 #r = requests.get("http://www.npatel.me")
 
 #data = r.text
 
 
 #an alternate way of getting all of a webpage
->>>>>>> 90e70ceff6ec8560612723184ca1c0d5a57934ab
 response = urllib2.urlopen("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1")
 
 #get a page
@@ -26,16 +25,23 @@ for para in soup.find_all('p'):
     page += str(para.getText())
 
 print page
-wordlist = page.split()
-print wordlist
+
+count = Counter(page.split())
+
+print count
+
+
+
+#wordlist = page.split()
+#print wordlist
 
 #assert(0)
-wordsFreq = {}
-for a in wordlist:
-	wordsFreq[a] = 0
+#wordsFreq = {}
+#for a in wordlist:
+#	wordsFreq[a] = 0
 
-for a in wordlist:
-	wordsFreq[a] += 1
+#for a in wordlist:
+#	wordsFreq[a] += 1
 
 
-print wordsFreq		
+#print wordsFreq		

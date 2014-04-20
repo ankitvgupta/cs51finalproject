@@ -20,7 +20,7 @@ soup = BeautifulSoup(page_source)
 
 page = ""
 
-#get a paragraph and then remove all of the tags in it
+
 for para in soup.find_all('p'):
     page += str(para.getText())
 
