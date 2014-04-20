@@ -13,7 +13,9 @@ response = urllib2.urlopen("http://www.cnn.com/2014/04/19/world/asia/south-korea
 
 page_source = response.read()
 soup = BeautifulSoup(page_source)
+page = ""
 
-page = soup.find('p').getText()
+for para in soup.find_all('p'):
+    page += para.getText()
 
 print page
