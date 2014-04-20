@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib2
 import requests
+from collections import defaultdict
 
 #r = requests.get("http://www.npatel.me")
 
@@ -8,7 +9,6 @@ import requests
 
 
 #an alternate way of getting all of a webpage
-
 response = urllib2.urlopen("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1")
 
 #get a page
@@ -18,6 +18,19 @@ page = ""
 
 #get a paragraph and then remove all of the tags in it
 for para in soup.find_all('p'):
-    page += para.getText()
+    page += str(para.getText())
 
 print page
+wordlist = page.split()
+print wordlist
+
+#assert(0)
+wordsFreq = {}
+for a in wordlist:
+	wordsFreq[a] = 0
+
+for a in wordlist:
+	wordsFreq[a] += 1
+
+
+print wordsFreq		
