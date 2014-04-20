@@ -1,11 +1,11 @@
 from bs4 import BeautifulSoup
 import urllib2
-import requests
-from collections import defaultdict
+#import requests
+#from collections import defaultdict
 from collections import Counter
 
 
-
+# given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
 def parse_page(url):
 	#an alternate way of getting all of a webpage
 	response = urllib2.urlopen(url)
@@ -15,9 +15,9 @@ def parse_page(url):
 
 	#turns page into parseable form
 	soup = BeautifulSoup(page_source)
-	page_text = ""
 
 	#gets text from all of page
+	page_text = ""
 	for para in soup.find_all('p'):
 	    page_text += str(para.getText())
 
