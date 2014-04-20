@@ -20,15 +20,18 @@ page = ""
 for para in soup.find_all('p'):
     page += str(para.getText())
 
-print page
-wordlist = page.split()
-print wordlist
+#print page
 
-#assert(0)
+#break up the page string into a list of words
+wordlist = page.split()
+#print wordlist
+
+# make and initialize the dictionary
 wordsFreq = {}
 for a in wordlist:
 	wordsFreq[a] = 0
 
+#find the frequencies
 for a in wordlist:
 	wordsFreq[a] += 1
 
