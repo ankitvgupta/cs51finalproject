@@ -8,11 +8,11 @@ import requests
 
 
 #an alternate way of getting all of a webpage
-response = urllib2.urlopen("http://google.de")
+response = urllib2.urlopen("http://www.reuters.com/article/2014/04/20/us-ukraine-crisis-idUSBREA3A1B520140420")
 page_source = response.read()
 
-soup = BeautifulSoup(data)
+soup = BeautifulSoup(page_source)
 
-for link in soup.find_all('a'):
-    print(link.get('href'))
+for link in soup.find_all('p'):
+    print(link)
 
