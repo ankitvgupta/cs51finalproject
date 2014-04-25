@@ -23,6 +23,7 @@ unique_joint_words = len(joint_dict.keys())
 #assigns unique index to each unique word
 ordering_dict = parser.create_ordering(joint_dict)
 
+# these next 3 functions return values needed in other files 
 def num_words():
 	return unique_joint_words
 
@@ -53,4 +54,3 @@ def matrix_builder(lib_file, cons_file, total_words):
 		init_list.append(list_builder(line, total_words))
 	return init_list
 
-#print matrix_builder('liberal.txt', 'conservative.txt', unique_joint_words)
