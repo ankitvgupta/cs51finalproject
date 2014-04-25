@@ -6,6 +6,15 @@ from collections import Counter
 
 
 
+def combine_dict(dict1, dict2):
+	for key in dict1.keys():
+		if key not in dict2:
+			dict2[key] = dict1[key]
+		else:
+			dict2[key] += dict1[key]
+	return dict2
+
+
 # given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
 def parse_page(url,orig_dict):
 	#an alternate way of getting all of a webpage
@@ -34,14 +43,9 @@ def parse_page(url,orig_dict):
 
 	#print standard_dict_count	
 
-
+	return combine_dict (standard_dict, orig_dict)
 	#print count
-	for key in standard_dict.keys():
-		if key not in orig_dict:
-			orig_dict[key] = standard_dict[key]
-		else:
-			orig_dict[key] += standard_dict[key]
-	return orig_dict
+	
 
 def build_dict(filename):
 	f = open(filename, 'r')
@@ -63,16 +67,26 @@ conservative_dict = build_dict('conservative.txt')
 total_lib_words = sum(liberal_dict.values())
 total_conservative_words = sum(conservative_dict.values())
 
+
+
 unique_lib_words = len(liberal_dict.keys())
 unique_conservative_words = len(conservative_dict.keys())
 
-print liberal_dict
+print unique_conservative_words
+print unique_lib_words
+#print liberal_dict
 
 liberal_freq_dict = divide_dict(liberal_dict, total_lib_words)
 conservative_freq_dict = divide_dict(conservative_dict, total_conservative_words)
 
 
-print liberal_freq_dict
+#print liberal_freq_dict
+
+joint_dict = combine_dict(liberal_dict, conservative_dict)
+unique_joint_words = len(joint_dict.keys())
+
+print unique_joint_words
+
 
 #dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
 #print dict2['and']
