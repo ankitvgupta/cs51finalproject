@@ -4,6 +4,14 @@ import urllib2
 #from collections import defaultdict
 from collections import Counter
 
+def build_dict(filename):
+	f = open(filename, 'r')
+	init_dict = {}
+	for line in f:
+		init_dict = parse_page(line, init_dict)
+	return init_dict
+
+print build_dict('liberal.txt')
 
 # given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
 def parse_page(url,orig_dict):
