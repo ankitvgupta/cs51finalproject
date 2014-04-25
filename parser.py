@@ -6,7 +6,7 @@ from collections import Counter
 
 
 # given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
-def parse_page(url):
+def parse_page(url,orig_dict):
 	#an alternate way of getting all of a webpage
 	response = urllib2.urlopen(url)
 
@@ -25,17 +25,21 @@ def parse_page(url):
 
 	#creates dictionary with word counts
 	count = Counter(page_text.split())
-	standard_dict_count = dict(count)
-	total_num_words = sum(standard_dict_count.values())
+	standard_dict = dict(count)
 
 	#change to frequencies
-	for word in standard_dict_count:
-		standard_dict_count[word] /= float(total_num_words)
+#	for word in standard_dict:
+	#	standard_dict[word] /= float(total_num_words)
 
 	#print standard_dict_count	
 
 
 	#print count
-	return standard_dict_count
+	return dict(orig_dict.items() + standard_dict.items())
 
-print parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1")
+dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {"and": 1})
+print dict2["and"]
+
+dict3 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {}) 
+print dict3["and"]
+
