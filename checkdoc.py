@@ -32,6 +32,6 @@ def parse_test_cases(inputfile):
 		pol_party = check_case(prepare_array(line))
 		print line, pol_party
 
-print parse_test_cases('testcases.txt')
+parse_test_cases('testcases.txt')
 
 

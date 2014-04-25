@@ -39,5 +39,5 @@ def lib_vector():
 def con_vector():
 	return con_vec
 
-print lib_vec
-print con_vec
+#print lib_vec
+#print con_vec
