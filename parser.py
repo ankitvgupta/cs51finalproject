@@ -3,6 +3,7 @@ import urllib2
 #import requests
 #from collections import defaultdict
 from collections import Counter
+from stemming.porter2 import stem
 
 
 
@@ -15,11 +16,19 @@ def combine_dict(dict1, dict2):
       dict2[key] += dict1[key]
   return dict2
 
-
+def stem_and_count(arr):
+  stemmed = {}
+  for word in arr:
+      temp_word = stem(word)
+      if temp_word in stemmed:
+        stemmed[temp_word] += 1
+      else:
+        stemmed[temp_word] = 1
+  return stemmed
 # given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
 def parse_page(url,orig_dict):
   # an alternate way of getting all of a webpage
-  print url
+  #print url
   response = urllib2.urlopen(url)
 
   # reads in info
@@ -35,11 +44,15 @@ def parse_page(url,orig_dict):
       #print page_text
 
   # creates dictionary with word counts
-  count = Counter(page_text.split())
-  standard_dict = dict(count)
-
+  #count = Counter(page_text.split())
+  stemmed_dict = stem_and_count(page_text.split())
+  #standard_dict = dict(count)
+  #print standard_dict
   # returns the combination of the new and old dict 
-  return combine_dict (standard_dict, orig_dict)
+
+  #for key in standard_dict:
+  #    standard_dict[key] = stem(standard_dict[key])
+  return combine_dict (stemmed_dict, orig_dict)
   
 # builds a dict of words and their frequences from a passed in file of urls
 def build_dict(filename):
