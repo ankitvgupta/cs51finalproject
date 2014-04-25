@@ -19,6 +19,7 @@ def combine_dict(dict1, dict2):
 # given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
 def parse_page(url,orig_dict):
   # an alternate way of getting all of a webpage
+  print url
   response = urllib2.urlopen(url)
 
   # reads in info

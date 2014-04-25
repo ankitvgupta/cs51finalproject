@@ -31,6 +31,7 @@ def clean_matrix(matrix, filename):
 		if word in joint_dict:
 			for article in matrix:
 				article[ordering_dict[word]] = 0
+	return matrix
 				
 # these next 3 functions return values needed in other files 
 def num_words():
