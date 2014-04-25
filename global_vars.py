@@ -2,8 +2,8 @@
 
 
 global liberal_file
-liberal_file = 'liberal.txt'
+liberal_file = 'files/liberal.txt'
 global conservative_file
-conservative_file = 'conservative.txt'
+conservative_file = 'files/conservative.txt'
 global test_file
-test_file = 'testcases.txt'
+test_file = 'files/testcases.txt'
