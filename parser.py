@@ -69,5 +69,10 @@ def create_ordering(dic):
 		counter += 1
 	return newdict	
 
-
+def line_count(fname):
+	f = open(fname, 'r')
+	line_count = 0
+	for line in f:
+		line_count += 1
+	return line_count
 
