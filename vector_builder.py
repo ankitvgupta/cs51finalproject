@@ -7,11 +7,11 @@ import global_vars
 total_words = matrix_builder.num_words()
 
 # stores the number of articles in the liberal and conservative files
-num_lib_files = parser.line_count('liberal.txt')
-num_con_files = parser.line_count('conservative.txt')
+num_lib_files = parser.line_count(global_vars.liberal_file)
+num_con_files = parser.line_count(global_vars.conservative_file)
 
 # stores the matrix of word counts from liberal and conservative articles
-total_matrix = matrix_builder.matrix_builder('liberal.txt', 'conservative.txt', total_words)
+total_matrix = matrix_builder.matrix_builder(global_vars.liberal_file, global_vars.conservative_file, total_words)
 
 # builds an array of (count/num_words) fractions for each word in all the articles, where:
 # count = total count of a word seen in all articles

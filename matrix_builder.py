@@ -2,8 +2,8 @@ import parser
 import global_vars
 
 #create dictionary with words from each file
-liberal_dict = parser.build_dict('liberal.txt')
-conservative_dict = parser.build_dict('conservative.txt')
+liberal_dict = parser.build_dict(global_vars.liberal_file)
+conservative_dict = parser.build_dict(global_vars.conservative_file)
 
 #total words in each class of articles
 total_liberal_words = sum(liberal_dict.values())
