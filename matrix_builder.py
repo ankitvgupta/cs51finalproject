@@ -28,8 +28,10 @@ def list_builder(article, total_words):
 	word_array = [0 for i in range(total_words)]
 	for key in word_dict:
 		word_array[ordering_dict[key]] = word_dict[key]
+	num_words = sum(word_array)
+	word_array = [item / float(num_words) for item in word_array]
 	return word_array
-
+	
 
 def matrix_builder(lib_file, cons_file, total_words):
 	lfiles = open(lib_file, 'r')
