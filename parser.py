@@ -70,40 +70,4 @@ def create_ordering(dic):
 	return newdict	
 
 
-liberal_dict = build_dict('liberal.txt')
-conservative_dict = build_dict('conservative.txt')
-
-total_lib_words = sum(liberal_dict.values())
-total_conservative_words = sum(conservative_dict.values())
-
-
-
-unique_lib_words = len(liberal_dict.keys())
-unique_conservative_words = len(conservative_dict.keys())
-
-print unique_conservative_words
-print unique_lib_words
-#print liberal_dict
-
-liberal_freq_dict = divide_dict(liberal_dict, total_lib_words)
-conservative_freq_dict = divide_dict(conservative_dict, total_conservative_words)
-
-
-#print liberal_freq_dict
-
-joint_dict = combine_dict(liberal_dict, conservative_dict)
-unique_joint_words = len(joint_dict.keys())
-
-ordering_dict = create_ordering(joint_dict)
-print ordering_dict
-
-print unique_joint_words
-
-
-#dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
-#print dict2['and']
-#print dict2
-
-#dict3 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {}) 
-#print dict3["and"]
 
