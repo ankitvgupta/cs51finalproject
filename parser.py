@@ -50,7 +50,10 @@ def build_dict(filename):
 		init_dict = parse_page(line, init_dict)
 	return init_dict
 
-print build_dict('liberal.txt')
+liberal_dict = build_dict('liberal.txt')
+conservative_dict = build_dict('conservative.txt')
+
+
 
 #dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
 #print dict2['and']
