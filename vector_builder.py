@@ -24,6 +24,7 @@ def build_vector(num_words, start_range, end_range):
 		initial[word] = math.log(count / float(num_words))
 	return initial
 
+# builds the arrays for both liberal and conservative articles 
 lib_vec = build_vector(matrix_builder.num_lib_words(), 0, num_lib_files)
 con_vec = build_vector(matrix_builder.num_con_words(), num_lib_files,num_lib_files + num_con_files)
 
