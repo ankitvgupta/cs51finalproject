@@ -35,10 +35,16 @@ def parse_page(url,orig_dict):
 
 
 	#print count
-	return dict(orig_dict.items() + standard_dict.items())
+	for key in standard_dict.keys():
+		if key not in orig_dict:
+			orig_dict[key] = standard_dict[key]
+		else:
+			orig_dict[key] += standard_dict[key]
+	return orig_dict
 
-dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {"and": 1})
-print dict2["and"]
+dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
+print dict2['and']
+print dict2
 
 dict3 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {}) 
 print dict3["and"]
