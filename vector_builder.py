@@ -12,7 +12,9 @@ num_con_files = parser.line_count('conservative.txt')
 # stores the matrix of word counts from liberal and conservative articles
 total_matrix = matrix_builder.matrix_builder('liberal.txt', 'conservative.txt', total_words)
 
-# 
+# builds an array of (count/num_words) fractions for each word in all the articles, where:
+# count = total count of a word seen in all articles
+# num_words = total number of words in that type of article
 def build_vector(num_words, start_range, end_range):
 	initial = [0 for i in range(total_words)]
 	for word in range(total_words):
