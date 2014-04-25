@@ -61,6 +61,15 @@ def divide_dict(dic, val):
 	return dic
 
 
+def create_ordering(dic):
+	counter = 0
+	newdict = {}
+	for key in dic.keys():
+		newdict[key] = counter
+		counter += 1
+	return newdict	
+
+
 liberal_dict = build_dict('liberal.txt')
 conservative_dict = build_dict('conservative.txt')
 
@@ -84,6 +93,8 @@ conservative_freq_dict = divide_dict(conservative_dict, total_conservative_words
 
 joint_dict = combine_dict(liberal_dict, conservative_dict)
 unique_joint_words = len(joint_dict.keys())
+
+ordering_dict = create_ordering(joint_dict)
 
 print unique_joint_words
 
