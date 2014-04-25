@@ -95,6 +95,7 @@ joint_dict = combine_dict(liberal_dict, conservative_dict)
 unique_joint_words = len(joint_dict.keys())
 
 ordering_dict = create_ordering(joint_dict)
+print ordering_dict
 
 print unique_joint_words
 
