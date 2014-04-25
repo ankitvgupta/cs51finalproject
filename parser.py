@@ -4,14 +4,7 @@ import urllib2
 #from collections import defaultdict
 from collections import Counter
 
-def build_dict(filename):
-	f = open(filename, 'r')
-	init_dict = {}
-	for line in f:
-		init_dict = parse_page(line, init_dict)
-	return init_dict
 
-print build_dict('liberal.txt')
 
 # given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
 def parse_page(url,orig_dict):
@@ -50,10 +43,19 @@ def parse_page(url,orig_dict):
 			orig_dict[key] += standard_dict[key]
 	return orig_dict
 
-dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
-print dict2['and']
-print dict2
+def build_dict(filename):
+	f = open(filename, 'r')
+	init_dict = {}
+	for line in f:
+		init_dict = parse_page(line, init_dict)
+	return init_dict
 
-dict3 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {}) 
-print dict3["and"]
+print build_dict('liberal.txt')
+
+#dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
+#print dict2['and']
+#print dict2
+
+#dict3 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {}) 
+#print dict3["and"]
 
