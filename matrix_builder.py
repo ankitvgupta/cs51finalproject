@@ -23,6 +23,7 @@ unique_joint_words = len(joint_dict.keys())
 #assigns unique index to each unique word
 ordering_dict = parser.create_ordering(joint_dict)
 
+#builds list from a specific article and total number of words
 def list_builder(article, total_words):	
 	word_dict = parser.parse_page(article,{})
 	word_array = [0 for i in range(total_words)]
@@ -31,15 +32,15 @@ def list_builder(article, total_words):
 	num_words = sum(word_array)
 	word_array = [item / float(num_words) for item in word_array]
 	return word_array
-	
 
+#reads conservative and liberal files and builds matrix from individual lists
 def matrix_builder(lib_file, cons_file, total_words):
-	lfiles = open(lib_file, 'r')
-	cfiles = open(cons_file, 'r')
+	larticles = open(lib_file, 'r')
+	carticles = open(cons_file, 'r')
 	init_list = []
-	for line in lfiles:
+	for line in larticles:
 		init_list.append(list_builder(line, total_words))
-	for line in cfiles:
+	for line in carticles:
 		init_list.append(list_builder(line, total_words))
 	return init_list
 
