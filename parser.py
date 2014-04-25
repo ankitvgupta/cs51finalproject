@@ -50,12 +50,27 @@ def build_dict(filename):
 		init_dict = parse_page(line, init_dict)
 	return init_dict
 
+
+def divide_dict(dic, val):
+	for item in dic:
+		dic[item] /= float(val)
+	return dic
+
+
 liberal_dict = build_dict('liberal.txt')
-conservative_dict = build_dict('conservative.txt')
+#conservative_dict = build_dict('conservative.txt')
 
-sum_lib_words = sum(liberal_dict.values())
-sum_conservative_words = sum(conservative_dict.values())
+total_lib_words = sum(liberal_dict.values())
+#total_conservative_words = sum(conservative_dict.values())
 
+unique_lib_words = len(liberal_dict.keys())
+unique_conservative_words = len(conservative_dict.keys())
+
+print liberal_dict
+
+liberal_freq_dict = divide_dict(liberal_dict, total_lib_words)
+print liberal_freq_dict
+#conservative_freq_dict = divide_dict(conservative_dict, total_conservative_words)
 
 
 #dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
