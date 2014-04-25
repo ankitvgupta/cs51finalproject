@@ -24,6 +24,14 @@ unique_joint_words = len(joint_dict.keys())
 #assigns unique index to each unique word
 ordering_dict = parser.create_ordering(joint_dict)
 
+# cleans a matrix for most common words
+def clean_matrix(matrix, filename):
+	common_words = open(filename, 'r')
+	for word in common_words:
+		if word in joint_dict:
+			for article in matrix:
+				article[ordering_dict[word]] = 0
+				
 # these next 3 functions return values needed in other files 
 def num_words():
 	return unique_joint_words

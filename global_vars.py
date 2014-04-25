@@ -7,3 +7,5 @@ global conservative_file
 conservative_file = 'files/conservative.txt'
 global test_file
 test_file = 'files/testcases.txt'
+global neutral_file
+neutral_file = 'files/neutralwords.txt'
