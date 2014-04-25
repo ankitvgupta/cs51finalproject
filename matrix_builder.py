@@ -1,4 +1,5 @@
 import parser
+import global_vars
 
 #create dictionary with words from each file
 liberal_dict = parser.build_dict('liberal.txt')

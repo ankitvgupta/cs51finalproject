@@ -1,6 +1,7 @@
 import parser
 import matrix_builder
 import math
+import global_vars
 
 # stores the number of unique words in liberal and conservative articles
 total_words = matrix_builder.num_words()
