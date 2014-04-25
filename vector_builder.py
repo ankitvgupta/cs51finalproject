@@ -23,7 +23,10 @@ def build_vector(num_words, start_range, end_range):
 		count = 0
 		for i in range(start_range, end_range):
 			count += total_matrix[i][word]
-		initial[word] = math.log(count / float(num_words))
+		if count == 0:
+			initial[word] = 0
+		else:
+			initial[word] = math.log(count / float(num_words))
 	return initial
 
 # builds the arrays for both liberal and conservative articles 
