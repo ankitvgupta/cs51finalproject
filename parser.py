@@ -30,7 +30,8 @@ def parse_page(url,orig_dict):
   # gets text from all of page
   page_text = ""
   for para in soup.find_all('p'):
-      page_text += str(para.getText())
+      page_text += para.getText()
+      #print page_text
 
   # creates dictionary with word counts
   count = Counter(page_text.split())
