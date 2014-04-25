@@ -53,6 +53,9 @@ def build_dict(filename):
 liberal_dict = build_dict('liberal.txt')
 conservative_dict = build_dict('conservative.txt')
 
+sum_lib_words = sum(liberal_dict.values())
+sum_conservative_words = sum(conservative_dict.values())
+
 
 
 #dict2 = parse_page("http://www.cnn.com/2014/04/19/world/asia/south-korea-ship-sinking/index.html?hpt=hp_t1", {'and': 1})
