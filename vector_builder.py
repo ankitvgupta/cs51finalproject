@@ -15,6 +15,8 @@ total_matrix = matrix_builder.matrix_builder('liberal.txt', 'conservative.txt', 
 # builds an array of (count/num_words) fractions for each word in all the articles, where:
 # count = total count of a word seen in all articles
 # num_words = total number of words in that type of article
+
+
 def build_vector(num_words, start_range, end_range):
 	initial = [0 for i in range(total_words)]
 	for word in range(total_words):
@@ -27,6 +29,12 @@ def build_vector(num_words, start_range, end_range):
 # builds the arrays for both liberal and conservative articles 
 lib_vec = build_vector(matrix_builder.num_lib_words(), 0, num_lib_files)
 con_vec = build_vector(matrix_builder.num_con_words(), num_lib_files,num_lib_files + num_con_files)
+
+
+def lib_vector():
+	return lib_vec
+def con_vector():
+	return con_vec
 
 print lib_vec
 print con_vec

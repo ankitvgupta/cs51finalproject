@@ -38,7 +38,8 @@ def list_builder(article, total_words):
 	word_dict = parser.parse_page(article,{})
 	word_array = [0 for i in range(total_words)]
 	for key in word_dict:
-		word_array[ordering_dict[key]] = word_dict[key]
+		if key in joint_dict:
+			word_array[ordering_dict[key]] = word_dict[key]
 	#num_words = sum(word_array)
 	#word_array = [item / float(num_words) for item in word_array]
 	return word_array
