@@ -32,7 +32,7 @@ def parse_page(url):
 	for word in standard_dict_count:
 		standard_dict_count[word] /= float(total_num_words)
 
-	print standard_dict_count	
+	#print standard_dict_count	
 
 
 	#print count
