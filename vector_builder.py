@@ -19,6 +19,7 @@ total_matrix = matrix_builder.matrix_builder(global_vars.liberal_file, global_va
 
 
 def build_vector(num_words, start_range, end_range):
+
 	initial = [0 for i in range(total_words)]
 	for word in range(total_words):
 		count = 0
