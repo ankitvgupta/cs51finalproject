@@ -8,4 +8,4 @@ conservative_file = 'files/conservative.txt'
 global test_file
 test_file = 'files/testcases.txt'
 global neutral_file
-neutral_file = 'files/neutralwords.txt'
+neutral_file = 'files/neutral_words.txt'

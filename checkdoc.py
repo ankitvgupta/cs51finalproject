@@ -15,6 +15,9 @@ def dot_arrays(arr1, arr2):
 def check_case(arr):
 	lib_prob = dot_arrays(lib_vector, arr)
 	con_prob = dot_arrays(con_vector, arr)
+	print lib_prob
+	print con_prob
+
 	if lib_prob/con_prob > 1.0:
 		return "Liberal"
 	elif con_prob/lib_prob > 1.0:
