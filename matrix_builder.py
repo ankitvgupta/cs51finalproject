@@ -23,14 +23,23 @@ unique_joint_words = len(joint_dict.keys())
 #assigns unique index to each unique word
 ordering_dict = parser.create_ordering(joint_dict)
 
+def num_words():
+	return unique_joint_words
+
+def num_lib_words():
+	return unique_liberal_words
+
+def num_con_words():
+	return unique_conservative_words
+
 #builds list from a specific article and total number of words
 def list_builder(article, total_words):	
 	word_dict = parser.parse_page(article,{})
 	word_array = [0 for i in range(total_words)]
 	for key in word_dict:
 		word_array[ordering_dict[key]] = word_dict[key]
-	num_words = sum(word_array)
-	word_array = [item / float(num_words) for item in word_array]
+	#num_words = sum(word_array)
+	#word_array = [item / float(num_words) for item in word_array]
 	return word_array
 
 #reads conservative and liberal files and builds matrix from individual lists
@@ -44,4 +53,4 @@ def matrix_builder(lib_file, cons_file, total_words):
 		init_list.append(list_builder(line, total_words))
 	return init_list
 
-print matrix_builder('liberal.txt', 'conservative.txt', unique_joint_words)
+#print matrix_builder('liberal.txt', 'conservative.txt', unique_joint_words)
