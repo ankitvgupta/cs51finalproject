@@ -54,31 +54,44 @@ def validate():
 
 	global num_articles
 	num_articles = find_num_articles()
-
-
 	size_of_check = num_articles / 10
+
+	
 	for i in range(0, num_articles - size_of_check, size_of_check):
+
+
 		print "Validation set " + str((i / size_of_check) + 1)
 		print "    Resetting files for next run..."
 		clear_validator_files()
 		add_validator_files(i, i+size_of_check)
+
+
 		print "    Constructing Liberal Word dictionary..."
 		matrix_builder.update_liberal_dict()
+
+
 		print "    Constructing Conservative Word dictionary...."
 		matrix_builder.update_conservative_dict()
-		#matrix_builder.update_liberal_freq_dict()
-		#matrix_builder.update_conservative_freq_dict()
+
 		print "    Constructing joint dictionary..."
 		matrix_builder.update_joint_dict()
+
+
 		print "    Finding unique joint words..."
 		matrix_builder.update_unique_joint_words()
+
+
 		print "    Constructing ordering dictionary..."
 		matrix_builder.update_ordering_dict()
+
+
 		print "    Updating word vectors..."
 		checkdoc.update_vectors()
-		print "    Calculating success rates...\n"
 
+
+		print "    Calculating success rates...\n"
 		result = checkdoc.validator_parse_test_cases(global_vars.validator_totest, size_of_check)
+
 		print "    " + str(result[0] * 100) + " percent of liberal articles were correct, and " + str(result[1] * 100) + " percent of conservative articles were correct.\n\n"
 
 
