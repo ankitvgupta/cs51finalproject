@@ -9,12 +9,13 @@ from stemming.porter2 import stem
 
 # combines the keys and values in two passed in dicts 
 def combine_dict(dict1, dict2):
+  newdict = dict(dict2)
   for key in dict1.keys():
-    if key not in dict2:
-      dict2[key] = dict1[key]
+    if key not in newdict:
+      newdict[key] = dict1[key]
     else:
-      dict2[key] += dict1[key]
-  return dict2
+      newdict[key] += dict1[key]
+  return newdict
 
 def stem_and_count(arr):
   stemmed = {}

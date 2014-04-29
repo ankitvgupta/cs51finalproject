@@ -1,28 +1,73 @@
 import parser
 import global_vars
 
+total_liberal_words = 0
+total_conservative_words = 0
+unique_liberal_words = 0
+unique_conservative_words = 0
+unique_joint_words = 0
+lib_dict = {}
+cons_dict = {}
+joint_dict = {}
+ordering_dict = {}
+
+def update_liberal_dict():
+	global lib_dict
+	global total_liberal_words
+	global unique_liberal_words
+	lib_dict = parser.build_dict(global_vars.liberal_file)
+	total_liberal_words = sum(lib_dict.values())
+	unique_liberal_words = len(lib_dict.keys())
+	return lib_dict
+def update_conservative_dict():
+	global cons_dict
+	global total_conservative_words
+	global unique_conservative_words
+	cons_dict = parser.build_dict(global_vars.conservative_file)
+	total_conservative_words = total_conservative_words = sum(cons_dict.values())
+	unique_conservative_words = len(cons_dict.keys())
+	return cons_dict
+
+def update_liberal_freq_dict():
+	return parser.divide_dict(lib_dict, total_liberal_words)
+def update_conservative_freq_dict():
+	return parser.divide_dict(cons_dict, total_conservative_words)
+def update_joint_dict():
+	global joint_dict
+	joint_dict = parser.combine_dict(lib_dict, cons_dict)
+	return joint_dict
+def update_unique_joint_words():
+	global unique_joint_words
+	unique_joint_words = len(joint_dict.keys())
+	return unique_joint_words
+def update_ordering_dict():
+	print joint_dict
+	global ordering_dict
+	ordering_dict = parser.create_ordering(joint_dict)
+	return ordering_dict
+
 #create dictionary with words from each file
-liberal_dict = parser.build_dict(global_vars.liberal_file)
-conservative_dict = parser.build_dict(global_vars.conservative_file)
+#liberal_dict = parser.build_dict(global_vars.liberal_file)
+#conservative_dict = parser.build_dict(global_vars.conservative_file)
 
 #total words in each class of articles
-total_liberal_words = sum(liberal_dict.values())
-total_conservative_words = sum(conservative_dict.values())
+#total_liberal_words = sum(liberal_dict.values())
+#total_conservative_words = sum(conservative_dict.values())
 
 #number of unique words in each class of articles
-unique_liberal_words = len(liberal_dict.keys())
-unique_conservative_words = len(conservative_dict.keys())
+#unique_liberal_words = len(liberal_dict.keys())
+#unique_conservative_words = len(conservative_dict.keys())
 
 #frequency dictionaries for each class of articles
-liberal_freq_dict = parser.divide_dict(liberal_dict, total_liberal_words)
-conservative_freq_dict = parser.divide_dict(conservative_dict, total_conservative_words)
+#liberal_freq_dict = parser.divide_dict(liberal_dict, total_liberal_words)
+#conservative_freq_dict = parser.divide_dict(conservative_dict, total_conservative_words)
 
 #dictionary with all articles from both classes
-joint_dict = parser.combine_dict(liberal_dict, conservative_dict)
-unique_joint_words = len(joint_dict.keys())
+#joint_dict = parser.combine_dict(liberal_dict, conservative_dict)
+#unique_joint_words = len(joint_dict.keys())
 
 #assigns unique index to each unique word
-ordering_dict = parser.create_ordering(joint_dict)
+#ordering_dict = parser.create_ordering(joint_dict)
 
 # cleans a matrix for most common words
 def clean_matrix(matrix, filename):
@@ -47,6 +92,8 @@ def num_con_words():
 def list_builder(article, total_words):	
 	word_dict = parser.parse_page(article,{})
 	word_array = [0 for i in range(total_words)]
+	#print word_dict
+	#print ordering_dict
 	for key in word_dict:
 		if key in joint_dict:
 			word_array[ordering_dict[key]] = word_dict[key]

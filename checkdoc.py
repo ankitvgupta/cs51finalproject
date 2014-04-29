@@ -3,8 +3,14 @@ import matrix_builder
 import vector_builder
 import numpy
 
-lib_vector = vector_builder.lib_vector()
-con_vector = vector_builder.con_vector()
+lib_vector = []
+con_vector = []
+
+def update_vectors():
+	global lib_vector
+	global con_vector
+	lib_vector = vector_builder.lib_vector()
+	con_vector = vector_builder.con_vector()
 
 def dot_arrays(arr1, arr2):
 	numpy_arr1 = numpy.array(arr1)
@@ -15,8 +21,8 @@ def dot_arrays(arr1, arr2):
 def check_case(arr):
 	lib_prob = dot_arrays(lib_vector, arr)
 	con_prob = dot_arrays(con_vector, arr)
-	#print lib_prob
-	#print con_prob
+	print lib_prob
+	print con_prob
 
 	if lib_prob/con_prob > 1.0:
 		return "Liberal"
@@ -30,6 +36,15 @@ def prepare_array(url):
 
 
 def parse_test_cases(inputfile):
+	matrix_builder.update_liberal_dict()
+	matrix_builder.update_conservative_dict()
+	#matrix_builder.update_liberal_freq_dict()
+	#matrix_builder.update_conservative_freq_dict()
+	matrix_builder.update_joint_dict()
+	matrix_builder.update_unique_joint_words()
+	matrix_builder.update_ordering_dict()
+	update_vectors()
+
 	test_cases = open(inputfile, 'r')
 	for line in test_cases:
 		pol_party = check_case(prepare_array(line))
@@ -47,6 +62,7 @@ def validator_parse_test_cases(inputfile, num):
 
 	for line in val_test_cases:
 		val_test_counter += 1
+
 		party = check_case(prepare_array(line))
 		if val_test_counter < num and party == "Conservative":
 			lib_results.append(0)
