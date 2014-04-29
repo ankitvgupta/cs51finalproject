@@ -1,6 +1,9 @@
 
 
-
+global orig_liberal_file
+orig_liberal_file = 'files/liberal.txt'
+global orig_conservative_file
+orig_conservative_file = 'files/conservative.txt'
 global liberal_file
 liberal_file = 'files/liberal.txt'
 global conservative_file

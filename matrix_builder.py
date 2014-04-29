@@ -56,6 +56,7 @@ def list_builder(article, total_words):
 
 #reads conservative and liberal files and builds matrix from individual lists
 def matrix_builder(lib_file, cons_file, total_words):
+	print "mat_builder called"
 	larticles = open(lib_file, 'r')
 	carticles = open(cons_file, 'r')
 	init_list = []
