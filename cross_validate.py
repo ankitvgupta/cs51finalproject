@@ -1,6 +1,8 @@
 import parser
 import global_vars
 import checkdoc
+import matrix_builder
+
 
 def clear_validator_files():
 	open(global_vars.validator_lib, 'w').close()
@@ -53,11 +55,34 @@ def validate():
 	global num_articles
 	num_articles = find_num_articles()
 
-	
+
 	size_of_check = num_articles / 10
 	for i in range(0, num_articles - size_of_check, size_of_check):
 		clear_validator_files()
 		add_validator_files(i, i+size_of_check)
+		print "newline"
+		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		matrix_builder.update_liberal_dict()
+		print "newline2"
+		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		matrix_builder.update_conservative_dict()
+		#matrix_builder.update_liberal_freq_dict()
+		#matrix_builder.update_conservative_freq_dict()
+		print "newline3"
+		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		matrix_builder.update_joint_dict()
+		print "newline4"
+		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		matrix_builder.update_unique_joint_words()
+		print "newline5"
+		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		matrix_builder.update_ordering_dict()
+		print "newline6"
+		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		checkdoc.update_vectors()
+		print "newline7"
+		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+
 		result = checkdoc.validator_parse_test_cases(global_vars.validator_totest, size_of_check)
 		print result[0], result[1] 
 
