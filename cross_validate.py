@@ -76,10 +76,10 @@ def validate():
 		matrix_builder.update_ordering_dict()
 		print "    Updating word vectors..."
 		checkdoc.update_vectors()
-		print "    Calculating success rates..."
+		print "    Calculating success rates...\n"
 
 		result = checkdoc.validator_parse_test_cases(global_vars.validator_totest, size_of_check)
-		print "    " + result[0], result[1] 
+		print "    " + str(result[0] * 100) + " percent of liberal articles were correct, and " + str(result[1] * 100) + " percent of conservative articles were correct.\n\n"
 
 
 

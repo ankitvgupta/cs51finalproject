@@ -21,9 +21,9 @@ def dot_arrays(arr1, arr2):
 def check_case(arr):
 	lib_prob = dot_arrays(lib_vector, arr)
 	con_prob = dot_arrays(con_vector, arr)
-	print lib_prob
-	print con_prob
-	print ""
+	#print lib_prob
+	#print con_prob
+	#print ""
 
 	if lib_prob/con_prob > 1.0:
 		return "Liberal"
@@ -62,7 +62,7 @@ def validator_parse_test_cases(inputfile, num):
 	con_results = []
 
 	for line in val_test_cases:
-		print "    " + line
+		#print "    " + line
 		val_test_counter += 1
 
 		party = check_case(prepare_array(line))
