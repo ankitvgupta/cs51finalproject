@@ -41,7 +41,7 @@ def update_unique_joint_words():
 	unique_joint_words = len(joint_dict.keys())
 	return unique_joint_words
 def update_ordering_dict():
-	print joint_dict
+	#print joint_dict
 	global ordering_dict
 	ordering_dict = parser.create_ordering(joint_dict)
 	return ordering_dict
@@ -103,7 +103,7 @@ def list_builder(article, total_words):
 
 #reads conservative and liberal files and builds matrix from individual lists
 def matrix_builder(lib_file, cons_file, total_words):
-	print "mat_builder called"
+	#print "mat_builder called"
 	larticles = open(lib_file, 'r')
 	carticles = open(cons_file, 'r')
 	init_list = []

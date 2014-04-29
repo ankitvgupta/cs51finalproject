@@ -3,17 +3,7 @@ import matrix_builder
 import math
 import global_vars
 
-# stores the number of unique words in liberal and conservative articles
 
-
-# stores the number of articles in the liberal and conservative files
-
-
-# stores the matrix of word counts from liberal and conservative articles
-
-# builds an array of (count/num_words) fractions for each word in all the articles, where:
-# count = total count of a word seen in all articles
-# num_words = total number of words in that type of article
 
 
 def build_vector(num_words, start_range, end_range):
@@ -42,5 +32,3 @@ def con_vector():
 	return build_vector(matrix_builder.num_con_words(), num_lib_files,num_lib_files + num_con_files)
 
 
-#print lib_vec
-#print con_vec

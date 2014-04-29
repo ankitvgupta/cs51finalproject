@@ -58,30 +58,24 @@ def validate():
 
 	size_of_check = num_articles / 10
 	for i in range(0, num_articles - size_of_check, size_of_check):
+		print "Resetting files for next run..."
 		clear_validator_files()
 		add_validator_files(i, i+size_of_check)
-		print "newline"
-		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		print "Constructing Liberal Word dictionary..."
 		matrix_builder.update_liberal_dict()
-		print "newline2"
-		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		print "Constructing Conservative Word dictionary...."
 		matrix_builder.update_conservative_dict()
 		#matrix_builder.update_liberal_freq_dict()
 		#matrix_builder.update_conservative_freq_dict()
-		print "newline3"
-		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		print "Constructing joint dictionary"
 		matrix_builder.update_joint_dict()
-		print "newline4"
-		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		print "Finding unique joint words"
 		matrix_builder.update_unique_joint_words()
-		print "newline5"
-		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		print "Constructing ordering dictionary"
 		matrix_builder.update_ordering_dict()
-		print "newline6"
-		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		print "Updating word vectors..."
 		checkdoc.update_vectors()
-		print "newline7"
-		print "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+		print "Calculating success rates..."
 
 		result = checkdoc.validator_parse_test_cases(global_vars.validator_totest, size_of_check)
 		print result[0], result[1] 
