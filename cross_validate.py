@@ -41,7 +41,7 @@ def add_validator_files(start_range, end_range):
 
 #returns the number of each type of article we have
 def find_num_articles():
-	lib_file = open(global_vars.liberal_file, 'r')
+	lib_file = open(global_vars.orig_liberal_file, 'r')
 	counter = 0
 	for line in lib_file:
 		counter += 1
@@ -58,27 +58,28 @@ def validate():
 
 	size_of_check = num_articles / 10
 	for i in range(0, num_articles - size_of_check, size_of_check):
-		print "Resetting files for next run..."
+		print "Validation set " + str((i / size_of_check) + 1)
+		print "    Resetting files for next run..."
 		clear_validator_files()
 		add_validator_files(i, i+size_of_check)
-		print "Constructing Liberal Word dictionary..."
+		print "    Constructing Liberal Word dictionary..."
 		matrix_builder.update_liberal_dict()
-		print "Constructing Conservative Word dictionary...."
+		print "    Constructing Conservative Word dictionary...."
 		matrix_builder.update_conservative_dict()
 		#matrix_builder.update_liberal_freq_dict()
 		#matrix_builder.update_conservative_freq_dict()
-		print "Constructing joint dictionary"
+		print "    Constructing joint dictionary..."
 		matrix_builder.update_joint_dict()
-		print "Finding unique joint words"
+		print "    Finding unique joint words..."
 		matrix_builder.update_unique_joint_words()
-		print "Constructing ordering dictionary"
+		print "    Constructing ordering dictionary..."
 		matrix_builder.update_ordering_dict()
-		print "Updating word vectors..."
+		print "    Updating word vectors..."
 		checkdoc.update_vectors()
-		print "Calculating success rates..."
+		print "    Calculating success rates..."
 
 		result = checkdoc.validator_parse_test_cases(global_vars.validator_totest, size_of_check)
-		print result[0], result[1] 
+		print "    " + result[0], result[1] 
 
 
 

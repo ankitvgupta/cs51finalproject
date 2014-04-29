@@ -62,7 +62,7 @@ def validator_parse_test_cases(inputfile, num):
 	con_results = []
 
 	for line in val_test_cases:
-		print line
+		print "    " + line
 		val_test_counter += 1
 
 		party = check_case(prepare_array(line))
