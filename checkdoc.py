@@ -39,14 +39,21 @@ def prepare_array(url):
 
 
 def parse_test_cases(inputfile):
+	print "    Constructing Liberal Word dictionary..."
 	matrix_builder.update_liberal_dict()
+	print "    Constructing Conservative Word dictionary...."
 	matrix_builder.update_conservative_dict()
 	#matrix_builder.update_liberal_freq_dict()
 	#matrix_builder.update_conservative_freq_dict()
+	print "    Constructing joint dictionary..."
 	matrix_builder.update_joint_dict()
+	print "    Finding unique joint words..."
 	matrix_builder.update_unique_joint_words()
+	print "    Constructing ordering dictionary..."
 	matrix_builder.update_ordering_dict()
+	print "    Updating word vectors..."
 	update_vectors()
+	print "    Calculating success rates...\n"
 
 	liberals = 0
 	conservatives = 0
