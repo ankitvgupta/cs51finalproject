@@ -25,9 +25,11 @@ def check_case(arr):
 	print con_prob
 	print ""
 
-	if lib_prob/con_prob > 1.0:
+	if con_prob == 0.0:
+		return "Inconclusive"
+	elif lib_prob/con_prob > 1.05:
 		return "Liberal"
-	elif con_prob/lib_prob > 1.0:
+	elif con_prob/lib_prob > 1.05:
 		return "Conservative"
 	else:
 		return "Inconclusive"
@@ -46,11 +48,28 @@ def parse_test_cases(inputfile):
 	matrix_builder.update_ordering_dict()
 	update_vectors()
 
+	liberals = 0
+	conservatives = 0
+	inconclusives = 0
+
 	test_cases = open(inputfile, 'r')
 	for line in test_cases:
-		pol_party = check_case(prepare_array(line))
-		print line, pol_party
-		print "\n\n\n\n\n\n\n\n"
+		print line
+		try:
+			pol_party = check_case(prepare_array(line))
+			if pol_party == "Liberal":
+				liberals += 1
+			elif pol_party == "Conservative":
+				conservatives += 1
+			elif pol_party == "Inconclusive":
+				inconclusives += 1
+		except:
+			continue
+		#print line, pol_party
+		#print "\n\n\n\n\n\n\n\n"
+	print (liberals)/ float((liberals + conservatives + inconclusives))
+	print (conservatives)/ float((liberals + conservatives + inconclusives))
+	print (inconclusives)/ float((liberals + conservatives + inconclusives))
 
 def array_average(arr):
 	return float(sum(arr))/float(len(arr))

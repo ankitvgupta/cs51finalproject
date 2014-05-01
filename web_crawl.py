@@ -6,7 +6,7 @@ from collections import deque
 import global_vars
 import checkdoc
 
-starting_url = 'http://www.cnn.com/2014/04/29/politics/shumlin-midterms/index.html?hpt=po_c1'
+starting_url = 'http://www.cato.org/publications/policy-analysis/how-states-talk-back-washington-strengthen-american-federalism'
 
 def extract_base(url):
 
