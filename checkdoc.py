@@ -94,10 +94,14 @@ def validator_parse_test_cases(inputfile, num):
 			lib_results.append(0)
 		elif val_test_counter < num and party == "Liberal":
 			lib_results.append(1)
+		elif val_test_counter < num:
+			lib_results.append(1)
 		elif val_test_counter >= num and party == "Conservative":
 			con_results.append(1)
 		elif val_test_counter >= num and party == "Liberal":
 			con_results.append(0)
+		elif val_test_counter >= num:
+			con_results.append(1)
 	return [array_average(lib_results), array_average(con_results)]
 
 
