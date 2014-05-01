@@ -3,6 +3,8 @@ import urllib2
 from urlparse import urljoin
 from urlparse import urlparse
 from collections import deque
+import global_vars
+import checkdoc
 
 starting_url = 'http://www.cnn.com/2014/04/29/politics/shumlin-midterms/index.html?hpt=po_c1'
 
@@ -30,4 +32,17 @@ def crawler(queue, websites, base):
   websites.append(link)
   return crawler(queue, websites, base)
 
-print crawler(deque([starting_url]), [], extract_base(starting_url))
+def run_tests():
+  links_array = crawler(deque([starting_url]), [], extract_base(starting_url))
+  print links_array
+  open(global_vars.validator_totest, 'w').close()
+  f = open(global_vars.validator_totest, 'w')
+  for url in links_array:
+    f.write(url + "\n")
+  f.close()
+  
+  global_vars.liberal_file = global_vars.orig_liberal_file
+  global_vars.conservative_file = global_vars.orig_conservative_file
+  checkdoc.parse_test_cases(global_vars.validator_totest)
+
+run_tests()

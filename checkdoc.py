@@ -21,9 +21,9 @@ def dot_arrays(arr1, arr2):
 def check_case(arr):
 	lib_prob = dot_arrays(lib_vector, arr)
 	con_prob = dot_arrays(con_vector, arr)
-	#print lib_prob
-	#print con_prob
-	#print ""
+	print lib_prob
+	print con_prob
+	print ""
 
 	if lib_prob/con_prob > 1.0:
 		return "Liberal"
@@ -50,6 +50,7 @@ def parse_test_cases(inputfile):
 	for line in test_cases:
 		pol_party = check_case(prepare_array(line))
 		print line, pol_party
+		print "\n\n\n\n\n\n\n\n"
 
 def array_average(arr):
 	return float(sum(arr))/float(len(arr))
