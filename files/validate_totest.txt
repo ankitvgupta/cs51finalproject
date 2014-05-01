@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 http://www.cnn.com/2014/04/29/politics/shumlin-midterms/index.html?hpt=po_c1
 http://www.cnn.com/trends/?hpt=sitenav
 http://www.cnn.com/interactive/2014/politics/key-races/?race=governor
@@ -98,3 +99,15 @@ http://www.cnn.com/specials/politics/inside-politics/index.html
 http://www.cnn.com/specials/politics/inside-politics/index.html
 http://www.cnn.com/interactive/2014/politics/key-races/
 http://www.cnn.com/specials/politics/inside-politics/index.html
+=======
+http://thinkprogress.org/health/2014/04/23/3430133/mississippi-unconstitutional-abortion-ban/
+http://thinkprogress.org/health/2014/04/18/3428187/texas-abortion-clinic-el-paso/
+http://thinkprogress.org/health/2014/04/25/3430967/boehner-obamacare-repeal-answer/
+http://thinkprogress.org/health/2014/04/17/3428219/obamacare-enrollment/
+http://thinkprogress.org/economy/2014/04/25/3431054/home-care-workers-minimum-wage/
+http://blog.heritage.org/2014/04/18/just-dumb-decision-pro-obamacare-conspiracy-census-bureau/
+http://blog.heritage.org/2014/04/21/likely-youll-hear-liberal-commencement-speaker/
+http://blog.heritage.org/2014/04/11/court-orders-louisiana-put-feds-families-voucher-notifications/
+http://blog.heritage.org/2014/04/24/oregons-top-official-recommends-scrapping-obamacare-website/
+http://blog.heritage.org/2014/04/25/7-reasons-nothing-stand-way-keystone-xl-pipeline/
+>>>>>>> 2e35527b5f4c426ab170ca9c3053cefbf09b4b30
