@@ -6,7 +6,7 @@ from collections import deque
 import global_vars
 import checkdoc
 
-starting_url = 'http://www.reuters.com/article/2014/04/30/us-usa-fed-idUSBREA3T03720140430'
+starting_url = global_vars.url_to_crawl
 
 def extract_base(url):
 

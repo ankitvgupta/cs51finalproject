@@ -1,5 +1,3 @@
-
-
 global orig_liberal_file
 orig_liberal_file = 'files/liberal.txt'
 global orig_conservative_file
@@ -18,3 +16,6 @@ global validator_cons
 validator_cons = 'files/validate_cons.txt'
 global validator_totest
 validator_totest = 'files/validate_totest.txt'
+
+global url_to_crawl
+url_to_crawl = 'http://www.bbc.com/news/world-us-canada-27225994'
