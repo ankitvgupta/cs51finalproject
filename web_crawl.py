@@ -8,6 +8,9 @@ from collections import deque
 
 url = 'http://www.cnn.com/2014/04/29/politics/shumlin-midterms/index.html?hpt=po_c1'
 
+breakdown_url = urlparse(url)
+new_url = breakdown_url.scheme + "://" + breakdown_url.netloc
+
 def crawler(queue, websites):
   if len(websites) == 100:
     return websites 
@@ -18,7 +21,7 @@ def crawler(queue, websites):
     return crawler(queue, websites)
   page_source = response.read()
   soup = BeautifulSoup(page_source)
-  a_tags = soup.select('a[href^="http://www.cnn.com/"]')
+  a_tags = soup.select('a[href^=new_url]')
   for i in a_tags:
     if ('href' in dict(i.attrs)):
       if str(i['href']) not in websites:
