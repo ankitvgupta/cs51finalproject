@@ -6,16 +6,17 @@ from collections import deque
 import global_vars
 import checkdoc
 
-starting_url = 'http://www.cato.org/publications/policy-analysis/how-states-talk-back-washington-strengthen-american-federalism'
+starting_url = 'http://www.reuters.com/article/2014/04/30/us-usa-fed-idUSBREA3T03720140430'
 
 def extract_base(url):
 
   breakdown_url = urlparse(url)
-  new_url = breakdown_url.scheme + "://" + breakdown_url.netloc
+  new_url = breakdown_url.scheme + "://" + breakdown_url.netloc + "/"
   return new_url
 
 def crawler(queue, websites, base):
-  if len(websites) == 100:
+  #print base
+  if len(websites) == 100 or len(queue) == 0:
     return websites 
   link = queue.popleft() 
   try: 

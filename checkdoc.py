@@ -67,9 +67,13 @@ def parse_test_cases(inputfile):
 			continue
 		#print line, pol_party
 		#print "\n\n\n\n\n\n\n\n"
-	print (liberals)/ float((liberals + conservatives + inconclusives))
-	print (conservatives)/ float((liberals + conservatives + inconclusives))
-	print (inconclusives)/ float((liberals + conservatives + inconclusives))
+	lib_ratio = (liberals)/ float((liberals + conservatives + inconclusives)) * 100
+	cons_ratio = (conservatives)/ float((liberals + conservatives + inconclusives)) * 100
+	inc_ratio = (inconclusives)/ float((liberals + conservatives + inconclusives)) * 100
+	str_lib = str(lib_ratio) + " percent of articles on this site were liberal, \n" 
+	str_cons = str(cons_ratio) + " percent of articles on this site were conservative, \n and"
+	str_inc = str(inc_ratio) + " percent of articles on this site were incoclusive."
+	print str_lib + str_cons + str_inc 
 
 def array_average(arr):
 	return float(sum(arr))/float(len(arr))
