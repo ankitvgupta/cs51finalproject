@@ -1,14 +1,16 @@
-import parser
+#import parser
 import global_vars
 import checkdoc
 import matrix_builder
 
 
+#Reset all of the validator files
 def clear_validator_files():
 	open(global_vars.validator_lib, 'w').close()
 	open(global_vars.validator_cons, 'w').close()
 	open(global_vars.validator_totest, 'w').close()
 
+#Add to the validator files given a certain range
 def add_validator_files(start_range, end_range):
 	lib_counter = -1
 	cons_counter = -1
@@ -47,6 +49,7 @@ def find_num_articles():
 		counter += 1
 	return counter
 
+#Update all of the global variables for each validation set and call the necessary validation sets
 def validate():
 	#make the liberal and conservative files be the validator ones
 	global_vars.liberal_file = global_vars.validator_lib
@@ -61,35 +64,35 @@ def validate():
 
 
 		print "Validation set " + str((i / size_of_check) + 1)
-		print "    Resetting files for next run..."
+		print "    Step 1: Resetting files for next run..."
 		clear_validator_files()
 		add_validator_files(i, i+size_of_check)
 
 
-		print "    Constructing Liberal Word dictionary..."
+		print "    Step 2: Constructing Liberal Word dictionary..."
 		matrix_builder.update_liberal_dict()
 
 
-		print "    Constructing Conservative Word dictionary...."
+		print "    Step 3: Constructing Conservative Word dictionary...."
 		matrix_builder.update_conservative_dict()
 
-		print "    Constructing joint dictionary..."
+		print "    Step 4: Constructing joint dictionary..."
 		matrix_builder.update_joint_dict()
 
 
-		print "    Finding unique joint words..."
+		print "    Step 5: Finding unique joint words..."
 		matrix_builder.update_unique_joint_words()
 
 
-		print "    Constructing ordering dictionary..."
+		print "    Step 6: Constructing ordering dictionary..."
 		matrix_builder.update_ordering_dict()
 
 
-		print "    Updating word vectors..."
+		print "    Step 7: Updating word vectors..."
 		checkdoc.update_vectors()
 
 
-		print "    Calculating success rates...\n"
+		print "    Step 8: Calculating success rates...\n"
 		result = checkdoc.validator_parse_test_cases(global_vars.validator_totest, size_of_check)
 
 		print "    " + str(result[0] * 100) + " percent of liberal articles were correct, and " + str(result[1] * 100) + " percent of conservative articles were correct.\n\n"

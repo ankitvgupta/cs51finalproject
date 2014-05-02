@@ -4,23 +4,23 @@ import cross_validate
 import web_crawl
 import sys
 
-#global_vars.init()
+#Standard Naive Bayes with Test cases in the testcases.txt file
 def version1():
 	print "\n\n\nBeginning Version 1 - Standard Naive-Bayes, with test cases in the testcases.txt file.\nSome of these steps may take one or more minutes.\n\n\n"
 	checkdoc.parse_test_cases(global_vars.test_file)
 
+#Beginnig
 def version2():
 	print "\n\n\nBeginning Version 2 - Standard Naive-Bayes, with test cases found by crawling the site in the global_vars.py file.\nSome of these steps may take one or more minutes.\n\n\n"
 	web_crawl.run_tests()
 
 def version3():
-	print "\n\n\nBeginning Version 2 - Cross-Validation\nSome of these steps may take one or more minutes.\n\n\n"
+	print "\n\n\nBeginning Version 3 - Cross-Validation\nSome of these steps may take one or more minutes.\n\n\n"
 	cross_validate.validate()
 
 
 counter = -1
 if len(sys.argv) == 1:
-	print "doing them all"
 	version1()
 	version2()
 	version3()

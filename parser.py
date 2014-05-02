@@ -1,8 +1,5 @@
 from bs4 import BeautifulSoup
 import urllib2
-#import requests
-#from collections import defaultdict
-from collections import Counter
 from stemming.porter2 import stem
 
 
@@ -45,7 +42,6 @@ def parse_page(url,orig_dict):
       #print page_text
 
   # creates dictionary with word counts
-  #count = Counter(page_text.split())
   stemmed_dict = stem_and_count(page_text.split())
   #standard_dict = dict(count)
   #print standard_dict
@@ -60,7 +56,10 @@ def build_dict(filename):
   f = open(filename, 'r')
   init_dict = {}
   for line in f:
-    init_dict = parse_page(line, init_dict)
+    try:
+      init_dict = parse_page(line, init_dict)
+    except:
+      continue
   return init_dict
 
 # divides the values in a dict by a certain value

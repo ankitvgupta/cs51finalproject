@@ -5,7 +5,7 @@ import global_vars
 
 
 
-
+#Builds the vector of word frequencies from the matrix of word frequencies
 def build_vector(num_words, start_range, end_range):
 	total_words = matrix_builder.num_words()
 	total_matrix = matrix_builder.matrix_builder(global_vars.liberal_file, global_vars.conservative_file, total_words)
@@ -22,7 +22,7 @@ def build_vector(num_words, start_range, end_range):
 			initial[word] = math.log(count / float(num_words))
 	return initial
 
-
+#Find the liberal and conservative vectors by using build_vector
 def lib_vector():
 	num_lib_files = parser.line_count(global_vars.liberal_file)
 	return build_vector(matrix_builder.num_lib_words(), 0, num_lib_files)
