@@ -46,4 +46,4 @@ def run_tests():
   global_vars.conservative_file = global_vars.orig_conservative_file
   checkdoc.parse_test_cases(global_vars.validator_totest)
 
-run_tests()
+#run_tests()
