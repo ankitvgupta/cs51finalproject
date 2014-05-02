@@ -79,7 +79,7 @@ def parse_test_cases(inputfile):
 	inc_ratio = (inconclusives)/ float((liberals + conservatives + inconclusives)) * 100
 	str_lib = str(lib_ratio) + " percent of articles were liberal, \n" 
 	str_cons = str(cons_ratio) + " percent of articles were conservative, and\n "
-	str_inc = str(inc_ratio) + " percent of articles were incoclusive."
+	str_inc = str(inc_ratio) + " percent of articles were inconclusive."
 	print str_lib + str_cons + str_inc 
 
 #Get the average of an array
