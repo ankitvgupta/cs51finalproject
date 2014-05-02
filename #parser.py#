@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import urllib2
+#import requests
+#from collections import defaultdict
+from collections import Counter
 from stemming.porter2 import stem
 
 
@@ -10,7 +13,6 @@ def combine_dict(dict1, dict2):
   for key in dict1.keys():
     if key not in newdict:
       newdict[key] = dict1[key]
-    else:
       newdict[key] += dict1[key]
   return newdict
 
@@ -23,7 +25,6 @@ def stem_and_count(arr):
       else:
         stemmed[temp_word] = 1
   return stemmed
-
 # given an input url, returns a dictionary of word frequencies of the relevant parts of its contents
 def parse_page(url,orig_dict):
   # an alternate way of getting all of a webpage
@@ -43,6 +44,7 @@ def parse_page(url,orig_dict):
       #print page_text
 
   # creates dictionary with word counts
+  #count = Counter(page_text.split())
   stemmed_dict = stem_and_count(page_text.split())
   #standard_dict = dict(count)
   #print standard_dict
@@ -57,10 +59,7 @@ def build_dict(filename):
   f = open(filename, 'r')
   init_dict = {}
   for line in f:
-    try:
-      init_dict = parse_page(line, init_dict)
-    except:
-      continue
+    init_dict = parse_page(line, init_dict)
   return init_dict
 
 # divides the values in a dict by a certain value
