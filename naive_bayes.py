@@ -9,16 +9,17 @@ def version1():
 	print "\n\n\nBeginning Version 1 - Standard Naive-Bayes, with test cases in the testcases.txt file.\nSome of these steps may take one or more minutes.\n\n\n"
 	checkdoc.parse_test_cases(global_vars.test_file)
 
-#Beginnig
+#Standard Naive Bayes with Web-Crawling
 def version2():
 	print "\n\n\nBeginning Version 2 - Standard Naive-Bayes, with test cases found by crawling the site in the global_vars.py file.\nSome of these steps may take one or more minutes.\n\n\n"
 	web_crawl.run_tests()
 
+#Standard Naive Bayes with Cross Validation
 def version3():
 	print "\n\n\nBeginning Version 3 - Cross-Validation\nSome of these steps may take one or more minutes.\n\n\n"
 	cross_validate.validate()
 
-
+#Parse the command line arguments and call the above functions accordingly.
 counter = -1
 if len(sys.argv) == 1:
 	version1()
