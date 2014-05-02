@@ -25,11 +25,28 @@ All of these take into account the elimination of neutral words.
 
 
 Instructions:
-Navigate to the code directory in the terminal, and type "python naive_bayes.py" to run all three versions in order. Otherwise, navugate to the code directory in the terminal and type "python naive_bayes.py x_1 x_2 x_3", where each of x_i are either 1 or 0, specifying whether to run version i. In other words, to run Versions 1 and 3, type "python naive_bayes.py 1 0 1".
+First, make sure that you have the following installed:
+Python 2.7.5
+Library: Numpy (http://www.numpy.org)
+Library: BeautifulSoup (http://www.crummy.com/software/BeautifulSoup/)
+Library: stemming 1.0 (https://pypi.python.org/pypi/stemming/1.0)
+Library: urllib2 (should be installed as part of python)
+Library: urlparse (should be installed as part of python)
+Library: collections (should be installed as part of python)
+Library: sys (should be installed as part of python)
+Library: math (should be installed as part of python)
 
-Now, for case-by-case instructions when running each version
+Navigate to the code directory in the terminal, and type "python naive_bayes.py" to run all three versions in order. Otherwise, navigate to the code directory in the terminal and type "python naive_bayes.py x_1 x_2 x_3", where each of x_i are either 1 or 0, specifying whether to run version i. In other words, to run Versions 1 and 3, type "python naive_bayes.py 1 0 1". You must either give all three arguments, or none of them.
+
+Now, for case-by-case instructions when running each version:
+
 Version 1) Put the files that you want to classify in files/testcases.txt. The classifier will train on the files in files/liberal.txt and files/conservative.txt. We would NOT recommend changes these two files since we picked each article, but you may if you wish.
-Version 2) Put the article that you want to begin the web-crawler on as the value of the variable url_to_crawl in global_vars.py. We recommend that you pick an article with a lot of links, or else it won't work. It would be best if you just used the one that is provided since we know that one will work.
+
+Version 2) Put the article that you want to begin the web-crawler on as the value of the variable url_to_crawl in global_vars.py. We recommend that you pick an article with a lot of links, or else it won't work. It would be best if you just used the one that is provided since we know that one will work. Here are a few that work well:
+	- http://www.cnn.com/2014/05/01/opinion/warren-middle-class/index.html?hpt=po_c2
+	- http://www.bbc.com/news/world-us-canada-27225994
+	- http://www.cato.org/blog/whats-really-impeding-progress-tppwhats-really-impeding-progress-tpp-japan-united-states-have
+
 Version 3) No extra steps needed - just do not change any of the text files in the files folder that begin with 'validate' - those will get modified by the code. 
 
 

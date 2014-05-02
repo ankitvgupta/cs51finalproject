@@ -22,4 +22,4 @@ validator_totest = 'files/validate_totest.txt'
 
 #Change this if you want to change where to start the web-crawler. 
 global url_to_crawl
-url_to_crawl = 'http://www.bbc.com/news/world-us-canada-27225994'
+url_to_crawl = 'http://www.cnn.com/2014/05/01/opinion/warren-middle-class/index.html?hpt=po_c2'
