@@ -1,6 +1,7 @@
 Naive Bayes: Examining the Partisanship of Online Content
 Ankit Gupta, Emily Wang, Nishant Kakar, and Hirsh Jain
 Computer Science 51 - Harvard University
+Github for this Project: https://github.com/ankitvgupta/cs51finalproject
 
 In this file, there are a set of instructions to let you know how to best use this software. First, I will list a few warnings. Then, I will list some of the general features that this software accomplishes. Last, I will explain how to correctly provide input to the software. 
 

@@ -1,0 +1,2 @@
+title: Naive Bayes: Examining the Partisanship of Online Content
+seas-usernames: ankitgupta, emilyluwang, hirshjain, nkakar

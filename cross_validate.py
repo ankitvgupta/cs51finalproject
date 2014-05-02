@@ -60,7 +60,7 @@ def validate():
 	size_of_check = num_articles / 10
 
 	
-	for i in range(0, num_articles - size_of_check, size_of_check):
+	for i in range(0, num_articles, size_of_check):
 
 
 		print "Validation set " + str((i / size_of_check) + 1)

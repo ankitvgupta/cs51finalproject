@@ -35,7 +35,6 @@ def crawler(queue, websites, base):
 
 def run_tests():
   links_array = crawler(deque([starting_url]), [], extract_base(starting_url))
-  #print links_array
   open(global_vars.validator_totest, 'w').close()
   f = open(global_vars.validator_totest, 'w')
   for url in links_array:
